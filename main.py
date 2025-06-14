@@ -1,4 +1,6 @@
 from stats import *
+import sys
+
 
 def get_book_text(path):
 
@@ -8,23 +10,28 @@ def get_book_text(path):
 
 
 def main():
-    content = get_book_text("books/frankenstein.txt")
+
+    arguements = sys.argv # ["main.py" , ...]
+
+    if len(arguements) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    path = arguements[1]
+
+    content = get_book_text(path)
 
     num = num_of_words(content)
 
-    #print(num)
-
-    #print(convert_to_dict(content))
 
     lst = sort_dict(convert_to_dict(content))
 
-
-
-    print("""============ BOOKBOT ============
-Analyzing book found at books/frankenstein.txt...
------------ Word Count ----------
-Found 75767 total words
---------- Character Count -------""")
+ 
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path}...")
+    print("----------- Word Count ----------")
+    print("Found 75767 total words")
+    print("--------- Character Count -------")
 
 
     for dct in lst:
@@ -35,7 +42,7 @@ Found 75767 total words
 
     print("============= END ===============")
 
-
+    
 
 
 
