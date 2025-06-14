@@ -17,3 +17,17 @@ def convert_to_dict(text):
                 dct[character.lower()] = 1
 
     return dct
+
+
+def sort_dict(dct):
+    lst = []
+
+    for key in dct:
+        lst.append({"character": key, "num": dct[key]})
+    
+    lst.sort(reverse=True, key=lambda x: x["num"]) # i used lambda :D
+    return lst
+
+
+def sort_on(dict):
+    return dict["num"]
