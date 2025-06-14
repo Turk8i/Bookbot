@@ -1,4 +1,4 @@
-from stats import num_of_words
+from stats import num_of_words, convert_to_dict
 
 def get_book_text(path):
 
@@ -12,7 +12,10 @@ def main():
 
     num = num_of_words(content)
 
-    print(f"{num} words found in the document")
+    #print(num)
+
+    print(convert_to_dict(content))
+
 
 
 
