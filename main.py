@@ -1,14 +1,10 @@
+from stats import num_of_words
+
 def get_book_text(path):
 
     with open(path) as file:
         return file.read()
 
-
-
-def num_of_words(text):
-    lst = text.split()
-
-    return len(lst)
 
 
 def main():
